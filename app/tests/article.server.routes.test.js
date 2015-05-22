@@ -55,7 +55,7 @@ describe('Article CRUD tests', function() {
 				if (signinErr) done(signinErr);
 
 				// Get the userId
-				var userId = user.id;
+				var userId = user._id;
 
 				// Save a new article
 				agent.post('/articles')
@@ -107,7 +107,7 @@ describe('Article CRUD tests', function() {
 				if (signinErr) done(signinErr);
 
 				// Get the userId
-				var userId = user.id;
+				var userId = user._id;
 
 				// Save a new article
 				agent.post('/articles')
@@ -132,7 +132,7 @@ describe('Article CRUD tests', function() {
 				if (signinErr) done(signinErr);
 
 				// Get the userId
-				var userId = user.id;
+				var userId = user._id;
 
 				// Save a new article
 				agent.post('/articles')
@@ -210,7 +210,7 @@ describe('Article CRUD tests', function() {
 				if (signinErr) done(signinErr);
 
 				// Get the userId
-				var userId = user.id;
+				var userId = user._id;
 
 				// Save a new article
 				agent.post('/articles')

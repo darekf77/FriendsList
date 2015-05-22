@@ -4,7 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+	Schema = mongoose.Schema,
+	autoIncrement = require('mongodb-autoincrement');
+
+
 
 /**
  * Article Schema
@@ -26,9 +29,11 @@ var ArticleSchema = new Schema({
 		trim: true
 	},
 	user: {
-		type: Schema.ObjectId,
+		type: Number,
 		ref: 'User'
 	}
 });
+
+ArticleSchema.plugin(autoIncrement.mongoosePlugin);
 
 mongoose.model('Article', ArticleSchema);

@@ -5,8 +5,8 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	crypto = require('crypto');
-
+	crypto = require('crypto'),
+	autoIncrement = require('mongodb-autoincrement');
 /**
  * A Validation function for local strategy properties
  */
@@ -142,5 +142,7 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 		}
 	});
 };
+
+UserSchema.plugin(autoIncrement.mongoosePlugin);
 
 mongoose.model('User', UserSchema);
