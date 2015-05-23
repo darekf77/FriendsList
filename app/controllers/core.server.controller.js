@@ -11,6 +11,11 @@ exports.index = function(req, res) {
 };
 
 
+
+exports.apidocs = function( req, res ) {
+	res.send('sieemamaaaa');
+};
+
 exports.hej = function(req, res) {
 	res.send('hej');
 
