@@ -12,7 +12,7 @@ var _ = require('lodash'),
  */
 exports.userByID = function(req, res, next, id) {
 	User.findOne({
-		_id: id
+		_id: parseInt(id)
 	}).exec(function(err, user) {
 		if (err) return next(err);
 		if (!user) return next(new Error('Failed to load User ' + id));
