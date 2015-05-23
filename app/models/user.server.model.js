@@ -103,6 +103,15 @@ UserSchema.pre('save', function(next) {
 	next();
 });
 
+
+UserSchema.methods.toJSON  = function() {
+    var obj = this.toObject();
+    delete obj.password;
+    delete obj.salt;
+    return obj;
+};
+
+
 /**
  * Create instance method for hashing a password
  */
