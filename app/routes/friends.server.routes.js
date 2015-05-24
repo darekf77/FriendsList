@@ -6,8 +6,7 @@ module.exports = function(app) {
     var friends = require('../../app/controllers/friends.server.controller');
 
     /**
-     * @api {post} 
-    app.route('/friends/:user1_id/:user2_id Create
+     * @api {post} /friends/:user1_id/:user2_id Create
      * @apiName CreateFriendship
      * @apiGroup Friends
      *
@@ -21,8 +20,7 @@ module.exports = function(app) {
         .post(friends.create);
 
     /**
-     * @api {delete} 
-    app.route('/friends/:user1_id/:user2_id Delete
+     * @api {delete} /friends/:user1_id/:user2_id Delete
      * @apiName Deleteriendship
      * @apiGroup Friends
      *
@@ -36,8 +34,7 @@ module.exports = function(app) {
         .delete(friends.delete);
 
     /**
-     * @api {get} 
-    app.route('/friends/:user1_id/:user2_id List
+     * @api {get} /friends/:user1_id/:user2_id List
      * @apiName ListOfUSerFriends
      * @apiGroup Friends
      *

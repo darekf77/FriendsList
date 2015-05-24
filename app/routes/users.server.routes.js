@@ -20,9 +20,24 @@ module.exports = function(app) {
 	app.route('/auth/reset/:token').get(users.validateResetToken);
 	app.route('/auth/reset/:token').post(users.reset);
 
-	// Setting up the users authentication api
+	/**
+     * @api {post} 
+    app.route('//auth/signup_id List 
+     * @apiName RegisterNewUser
+     * @apiGroup USers
+     *
+     * @apiParam {Number} user_id Users data
+     *
+     * @apiSuccess {Array} - with  user's friends data
+     * 
+     */
 	app.route('/auth/signup').post(users.signup);
+
+
 	app.route('/auth/signin').post(users.signin);
+
+
+
 	app.route('/auth/signout').get(users.signout);
 
 	// Setting the facebook oauth routes

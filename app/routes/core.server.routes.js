@@ -10,6 +10,7 @@ module.exports = function(app) {
 	// app.route('/api/docs').get(core.apidocs);
 
 	app.use('/api/docs',express.static('public/apidoc'));
+	app.use('/readme',express.static('public/doctor-md'));
 
 	app.route('/hej').get(core.hej);
 };

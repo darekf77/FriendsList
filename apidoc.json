@@ -1,5 +1,5 @@
 {
-  "name": "example-versioning",
-  "version": "0.2.0",
-  "description": "apiDoc versioning example"
+  "name": "Usługa sieciowa",
+  "version": "0.0.1",
+  "description": "automatycznie generowana dokumentacja do webowej aplikacji, autor: Dariusz Filipiak"
 }
