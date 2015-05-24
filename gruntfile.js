@@ -121,7 +121,7 @@ module.exports = function(grunt) {
             }
         },
         concurrent: {
-            default: ['nodemon', 'watch'],
+            default: ['nodemon', 'watch','doctor'],
             debug: ['nodemon', 'watch', 'node-inspector'],
             options: {
                 logConcurrentOutput: true,
@@ -197,7 +197,7 @@ module.exports = function(grunt) {
                     source: watchFiles.documentation,
                     output: 'public/doctor-md',
                     title: 'Usługa sieciowa',
-                    // logo: 'images/logo.png',
+                    logo: null,
                     // jsIncludes: ['docs'],
                     // cssIncludes: []
                 },
