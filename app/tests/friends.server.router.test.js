@@ -1,5 +1,13 @@
 'use strict';
 
+/*!
+3		 * Connect - utils
+4		 * Copyright(c) 2010 Sencha Inc.
+5		 * Copyright(c) 2011 TJ Holowaychuk
+6		 * MIT Licensed
+7		 */
+
+
 var should = require('should'),
     request = require('supertest'),
     app = require('../../server'),

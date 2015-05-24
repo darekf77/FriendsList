@@ -16,13 +16,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
-        	documentation: {
-        		files: watchFiles.documentation,
-        		tasks: ['doctor'],
-        		options: {
+            documentation: {
+                files: watchFiles.documentation,
+                tasks: ['doctor'],
+                options: {
                     livereload: true
                 }
-        	},
+            },
             serverViews: {
                 files: watchFiles.serverViews,
                 options: {
@@ -137,11 +137,43 @@ module.exports = function(grunt) {
             }
         },
         mochaTest: {
-            src: watchFiles.mochaTests,
-            options: {
-                reporter: 'spec',
-                require: 'server.js'
+            // src: watchFiles.mochaTests,
+            // options: {
+            //     reporter: 'spec',
+            //     require: 'server.js',
+            //     captureFile: 'resultsTEST.txt',
+            // },
+            test: {
+                options: {
+                    reporter: 'spec',
+                    // Require blanket wrapper here to instrument other required 
+                    // files on the fly.  
+                    // 
+                    // NB. We cannot require blanket directly as it 
+                    // detects that we are not running mocha cli and loads differently. 
+                    // 
+                    // NNB. As mocha is 'clever' enough to only run the tests once for 
+                    // each file the following coverage task does not actually run any 
+                    // tests which is why the coverage instrumentation has to be done here 
+                    require: 'server.js',
+                },
+                src: watchFiles.mochaTests
+            },
+            'html-cov': {
+                options: {
+                    reporter: 'html-cov',
+                    quiet: true,
+                    captureFile: 'public/html-cov/index.html'
+                },
+                src: watchFiles.mochaTests
+            },
+            'travis-cov': {
+                options: {
+                    reporter: 'travis-cov'
+                },
+                src: watchFiles.mochaTests
             }
+
         },
         karma: {
             unit: {
@@ -161,18 +193,18 @@ module.exports = function(grunt) {
         },
         doctor: {
             default_options: {
-				options: {
-					source: watchFiles.documentation,
-					output: 'public/doctor-md',
-					title: 'Usługa sieciowa',
-					// logo: 'images/logo.png',
-					// jsIncludes: ['docs'],
-					// cssIncludes: []
-				},
-				files: {
-					markdown: './README.md'
-				}
-			}
+                options: {
+                    source: watchFiles.documentation,
+                    output: 'public/doctor-md',
+                    title: 'Usługa sieciowa',
+                    // logo: 'images/logo.png',
+                    // jsIncludes: ['docs'],
+                    // cssIncludes: []
+                },
+                files: {
+                    markdown: './README.md'
+                }
+            }
         }
 
     });

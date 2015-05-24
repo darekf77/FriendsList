@@ -12,6 +12,11 @@
     "test": "grunt test",
     "postinstall": "bower install --config.interactive=false"
   },
+  "config": {
+    "travis-cov": { 
+      "threshold": 40
+    }
+  },
   "dependencies": {
     "express": "~4.10.1",
     "express-session": "~1.9.1",

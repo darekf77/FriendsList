@@ -11,6 +11,7 @@ module.exports = function(app) {
 
 	app.use('/api/docs',express.static('public/apidoc'));
 	app.use('/readme',express.static('public/doctor-md'));
+	app.use('/tests/coverage/report',express.static('public/html-cov'));
 
 	app.route('/hej').get(core.hej);
 };
