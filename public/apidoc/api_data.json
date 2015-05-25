@@ -141,6 +141,18 @@
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "-",
+            "description": "<p>Errors messages.</p> "
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "app/routes/friends.server.routes.js",
     "groupTitle": "Friends"

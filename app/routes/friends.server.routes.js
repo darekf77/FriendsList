@@ -45,7 +45,7 @@ module.exports = function(app) {
      * @apiParam {Number} user_id Users unique ID.
      *
      * @apiSuccess {Array} - with  user's friends data
-     * 
+     * @apiError - Errors messages.
      */
     app.route('/friends/:user_id([0-9]+)')
         .get(friends.list);

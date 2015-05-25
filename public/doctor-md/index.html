@@ -30,15 +30,15 @@
 </blockquote>
 <hr>
 <h2 id="opis">Opis</h2>
-<p>FriendsList to aplikacja wykorzystująca framework NodeJS wraz z bazą danych MongoDB, która zapewnia to bardzo wysoką wydajność nawet przy dużej liczbie jednoczesnych operacji odczyty/zapisu do serwera. Aplikacja udostępnia REST-owe API, opisane w <a href="/api/docs">tutaj</a></p>
+<p>FriendsList to aplikacja wykorzystująca framework NodeJS wraz z bazą danych MongoDB, która zapewnia bardzo wysoką wydajność nawet przy dużej liczbie jednoczesnych operacji odczyty/zapisu do serwera. Aplikacja udostępnia REST-owe API, opisane w <a href="/api/docs">tutaj</a></p>
 <hr>
 <h2 id="testy-jednostkowe-funkcjonalne">Testy jednostkowe, funkcjonalne</h2>
 <p>Wykonanie w głównym katalogu aplikacji:</p>
 <pre class="prettyprint linenums"><code>$ grunt test
-</code></pre><p>spowoduje uruchomienie testów (framework mocha) jednostkowych i funkcjonalnych w środowisku testowym ( baza danych będzie testowa ) .
+</code></pre><p>spowoduje uruchomienie testów (framework mocha) jednostkowych i funkcjonalnych w środowisku testowym ( utworzy się dodatkowa testowa baza danych ) .
 Raport pokazujący w jakim stopniu testy pokrywają kod znajduje się <a href="/tests/coverage/report/">tutaj.</a></p>
 <h2 id="wersja-produkcyjna-developerska">Wersja produkcyjna / developerska</h2>
-<p>Aby uruchomić aplikację w trybie produkcyjnym należy wyeksportować w konsoli zmienną NODE_ENV :</p>
+<p>Aby uruchomić aplikację w trybie produkcyjnym należy wyeksportować w konsoli zmienną NODE_ENV:</p>
 <pre class="prettyprint linenums"><code>$ export NODE_ENV=production &amp;&amp; nodejs server.js
 </code></pre><p>Aby z powrotem powrócić do trybu developement należy wykonać:</p>
 <pre class="prettyprint linenums"><code>$ export NODE_ENV=development 
