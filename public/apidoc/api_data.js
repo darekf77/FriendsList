@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/friends/:user1_id/:user2_id",
+    "url": "/friends",
     "title": "Create",
     "name": "CreateFriendship",
     "group": "Friends",
@@ -34,6 +34,18 @@ define({ "api": [
             "optional": false,
             "field": "-",
             "description": "<p>with user's id's</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "-",
+            "description": "<p>Errors messages.</p> "
           }
         ]
       }
@@ -81,6 +93,18 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "-",
+            "description": "<p>Errors messages.</p> "
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "app/routes/friends.server.routes.js",
     "groupTitle": "Friends"
@@ -122,24 +146,11 @@ define({ "api": [
     "groupTitle": "Friends"
   },
   {
-    "type": "post",
-    "url": "app.route('//auth/signup_id",
+    "type": "get",
+    "url": "/users",
     "title": "List",
-    "name": "RegisterNewUser",
-    "group": "USers",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "<p>Number</p> ",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>Users data</p> "
-          }
-        ]
-      }
-    },
+    "name": "ListOfLast20Users",
+    "group": "Users",
     "success": {
       "fields": {
         "Success 200": [
@@ -148,13 +159,25 @@ define({ "api": [
             "type": "<p>Array</p> ",
             "optional": false,
             "field": "-",
-            "description": "<p>with  user's friends data</p> "
+            "description": "<p>with  user's data (last 20 users)</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "-",
+            "description": "<p>Errors messages.</p> "
           }
         ]
       }
     },
     "version": "0.0.0",
     "filename": "app/routes/users.server.routes.js",
-    "groupTitle": "USers"
+    "groupTitle": "Users"
   }
 ] });

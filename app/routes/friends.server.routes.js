@@ -5,10 +5,10 @@ module.exports = function(app) {
     var users = require('../../app/controllers/users.server.controller');
     var friends = require('../../app/controllers/friends.server.controller');
 
-    var bodyParser = require('body-parser');
-    app.use(bodyParser.json());
+    // var bodyParser = require('body-parser');
+    // app.use(bodyParser.json());
     /**
-     * @api {post} /friends/:user1_id/:user2_id Create
+     * @api {post} /friends Create
      * @apiName CreateFriendship
      * @apiGroup Friends
      *
@@ -16,6 +16,7 @@ module.exports = function(app) {
      * @apiParam {Number} user2_id New friend id -> users unique ID.
      *
      * @apiSuccess {Array} - with user's id's
+     * @apiError - Errors messages.
      * 
      */
     app.route('/friends')
@@ -30,6 +31,7 @@ module.exports = function(app) {
      * @apiParam {Number} user2_id Friend to delete -> users unique ID.
      *
      * @apiSuccess {Array} - with user's id's
+     * @apiError - Errors messages.
      * 
      */
     app.route('/friends/:user1_id([0-9]+)/:user2_id([0-9]+)')

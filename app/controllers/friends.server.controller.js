@@ -14,17 +14,15 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 
-
+    var err;
     if ( typeof req.body.data === 'undefined' )  {
-        var err = new Error('Bad request parameters');
+        err = new Error('Bad request parameters');
         res.status(400).send(err.message);
         return;
     }
 
-    console.info(req.body.data);
-
     if (parseInt(req.body.data.user1_id) === parseInt(req.body.data.user2_id)) {
-        var err = new Error('Same values not allowed');
+        err = new Error('Same values not allowed');
         res.status(400).send(err.message);
         return;
     }
@@ -53,18 +51,17 @@ exports.create = function(req, res) {
  */
 exports.delete = function(req, res) {
 
-    console.info(req.params);
+    var err;
 
-    if ( typeof req.params.user1_id === 'undefined' 
-        || typeof req.params.user2_id === 'undefined') {
+    if ( typeof req.params.user1_id === 'undefined'  || typeof req.params.user2_id === 'undefined') {
 
-        var err = new Error('Bad request parameters');
+        err = new Error('Bad request parameters');
         res.status(400).send(err.message);
         return;
     }
 
     if (parseInt(req.params.user1_id) === parseInt(req.params.user2_id)) {
-        var err = new Error('Same values not allowed');
+            err = new Error('Same values not allowed');
         res.status(400).send(err.message);
         return;
     }

@@ -12,7 +12,20 @@ module.exports = function(app) {
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);
 	app.route('/users').put(users.update);
+
+
+	/**
+     * @api {get} /users List
+     * @apiName ListOfLast20Users
+     * @apiGroup Users
+     *
+     *
+     * @apiSuccess {Array} - with  user's data (last 20 users)
+     * @apiError - Errors messages.
+     */
 	app.route('/users').get(users.list);
+
+
 	app.route('/users/accounts').delete(users.removeOAuthProvider);
 
 	// Setting up the users password api
@@ -21,17 +34,7 @@ module.exports = function(app) {
 	app.route('/auth/reset/:token').get(users.validateResetToken);
 	app.route('/auth/reset/:token').post(users.reset);
 
-	/**
-     * @api {post} 
-    app.route('//auth/signup_id List 
-     * @apiName RegisterNewUser
-     * @apiGroup USers
-     *
-     * @apiParam {Number} user_id Users data
-     *
-     * @apiSuccess {Array} - with  user's friends data
-     * 
-     */
+	
 	app.route('/auth/signup').post(users.signup);
 
 

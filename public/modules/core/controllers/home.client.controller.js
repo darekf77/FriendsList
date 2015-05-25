@@ -27,12 +27,12 @@ angular.module('core').controller('HomeController', [
 
 
         $scope.refreshFriendshipAndActivate = function( user ) {
-        	console.info("AFTER QUERY");
+        	console.info('AFTER QUERY');
         	angular.forEach( $scope.users, function(v,k) {
         		$scope.getFriends(v);
         	} );
         	$scope.activateUser(user);
-        }
+        };
         
     	$scope.users = Users.query(function(){
         	 $scope.refreshFriendshipAndActivate($scope.users[0]);
@@ -46,13 +46,13 @@ angular.module('core').controller('HomeController', [
         
 
    		$scope.deleteFriend = function(user,friend) {
+   		console.log('friend ' , friend);
+   		console.log('user ' , user);
    			Friends.delete( { id: user._id, id2: friend._id },function() {
    				console.log('FRIEND DELETED!');
-   				var index = user.friends.indexOf(friend);
-   				console.log('index ' , index);
-   				if (index > -1) {
-					    user.friends.splice(index, 1);
-					}
+   				console.log('driend ' , friend);
+   				console.log('duser ' , user);
+   				
    			} );
    		};
 

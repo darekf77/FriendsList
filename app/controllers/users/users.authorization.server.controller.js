@@ -10,12 +10,16 @@ var _ = require('lodash'),
 /**
  * User middleware
  */
-exports.userByID = function(req, res, next, id) {
+exports.userByID = function(req, res, next, id) {	
 	User.findOne({
 		_id: parseInt(id)
 	}).exec(function(err, user) {
 		if (err) return next(err);
-		if (!user) return next(new Error('Failed to load User ' + id));
+		if (!user) {
+			res.end();
+			
+			return;
+		}  
 		req.profile = user;
 		next();
 	});

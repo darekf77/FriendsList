@@ -48,11 +48,11 @@
 								<li 
 								style="cursor:default" 
 									ng-repeat="friend in currentUser.friends"
-									class="list-group-item"> - {{friend.firstName}} {{friend.lastName}}
+									class="list-group-item"> {{friend.firstName}} {{friend.lastName}}
 									<span class="pull-right glyphicon glyphicon-trash"
 										ng-click="deleteFriend(currentUser,friend);refreshFriendshipAndActivate(currentUser)"
 										style="cursor:pointer" >
-										
+										usuń ze znajomych
 									</span>
 								</li>
 								<span ng-show="currentUser.friends.length == 0"> - nie znaleziono, klikinij Wszyscy, aby dodać i odszukać</span>
@@ -64,11 +64,11 @@
 								<li
 								style="cursor:default" 
 									ng-repeat="user in users"
-									class="list-group-item"> - {{user.firstName}} {{user.lastName}}
+									class="list-group-item"> {{user.firstName}} {{user.lastName}}
 									<span class="pull-right glyphicon glyphicon-plus-sign" 
 										ng-click="addFriend(currentUser,user);refreshFriendshipAndActivate(currentUser)"
 										style="cursor:pointer" >
-										
+										<span>dodaj do znajomych</span>
 									</span>
 
 								</li>
