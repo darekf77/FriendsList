@@ -10,10 +10,77 @@
 		</div>
 	</div>
 	<br>
-	<div class="panel panel-default">
+	<div class="panel panel-default" >
 		<div class="panel-heading">Przykładowy klient</div>
 		<div class="panel-body">
-			klienta
+			
+			<div class="row">
+				<div class="col col-xs-6">
+					Lista użytkowników
+				</div>
+				<div class="col col-xs-6">
+					Przyjaciele użytkownika
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col col-xs-6">
+					<ul class="list-group">
+						<li class="list-group-item link"
+							ng-repeat="user in users"
+							ng-click="getFriends(user);activateUser(user)"
+							ng-class="{'active' : user.active}"
+							>
+							<span class="badge" ng-bind="user.friends.length" ></span>
+							{{user.firstName}} {{user.lastName}}
+						</li>
+					</ul>
+					<span ng-show="users.length === 0" >Brak użytkowników, zarejestruj jakiegoś aby korzystać z aplikacji</span>
+
+				</div>
+				<div class="col col-xs-6">
+					<tabset vertical="false" type="pills">
+						<tab heading="Znajomi" ng-click="getFriends(currentUser)" >
+							<br>
+							<ul class="list-group" 
+								
+							>
+								<li 
+								style="cursor:default" 
+									ng-repeat="friend in currentUser.friends"
+									class="list-group-item"> - {{friend.firstName}} {{friend.lastName}}
+									<span class="pull-right glyphicon glyphicon-trash"
+										ng-click="deleteFriend(currentUser,friend);refreshFriendshipAndActivate(currentUser)"
+										style="cursor:pointer" >
+										
+									</span>
+								</li>
+								<span ng-show="currentUser.friends.length == 0"> - nie znaleziono, klikinij Wszyscy, aby dodać i odszukać</span>
+							</ul>
+						</tab>						
+						<tab heading="Wszyscy">
+							<br>
+							<ul  class="list-group" > 
+								<li
+								style="cursor:default" 
+									ng-repeat="user in users"
+									class="list-group-item"> - {{user.firstName}} {{user.lastName}}
+									<span class="pull-right glyphicon glyphicon-plus-sign" 
+										ng-click="addFriend(currentUser,user);refreshFriendshipAndActivate(currentUser)"
+										style="cursor:pointer" >
+										
+									</span>
+
+								</li>
+							</ul>
+							<span ng-show="users.length === 0"> - nie znaleziono </span>
+						</tab>
+					</tabset>
+
+					
+
+				</div>
+			</div>
 		</div>
 	</div>
 	

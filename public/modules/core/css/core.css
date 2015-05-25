@@ -13,3 +13,17 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+
+
+.link {
+	cursor: pointer;
+	opacity: 0.7;
+} 
+
+.link:hover {
+	opacity: 1.0;
+}
+
+li {
+	cursor: pointer;
+}

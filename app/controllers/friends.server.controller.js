@@ -7,31 +7,42 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     Friends = mongoose.model('Friends'),
     _ = require('lodash');
+    var bodyParser = require('body-parser');
 
 /**
  * Create a Friend
  */
 exports.create = function(req, res) {
 
-    if (parseInt(req.params.user1_id) === parseInt(req.params.user2_id)) {
+
+    if ( typeof req.body.data === 'undefined' )  {
+        var err = new Error('Bad request parameters');
+        res.status(400).send(err.message);
+        return;
+    }
+
+    console.info(req.body.data);
+
+    if (parseInt(req.body.data.user1_id) === parseInt(req.body.data.user2_id)) {
         var err = new Error('Same values not allowed');
         res.status(400).send(err.message);
+        return;
     }
 
     Friends.create(
         [{
-            user1_id: parseInt(req.params.user1_id),
-            user2_id: parseInt(req.params.user2_id)
+            user1_id: parseInt(req.body.data.user1_id),
+            user2_id: parseInt(req.body.data.user2_id)
         }, {
-            user1_id: parseInt(req.params.user2_id),
-            user2_id: parseInt(req.params.user1_id)
+            user1_id: parseInt(req.body.data.user2_id),
+            user2_id: parseInt(req.body.data.user1_id)
         }],
         function(err, small) {
             if (err) {
                 res.status(400).send(err.message);
                 return;
             }
-            res.json(req.params);
+            res.json(req.body.data);
         });
 };
 
@@ -42,9 +53,20 @@ exports.create = function(req, res) {
  */
 exports.delete = function(req, res) {
 
+    console.info(req.params);
+
+    if ( typeof req.params.user1_id === 'undefined' 
+        || typeof req.params.user2_id === 'undefined') {
+
+        var err = new Error('Bad request parameters');
+        res.status(400).send(err.message);
+        return;
+    }
+
     if (parseInt(req.params.user1_id) === parseInt(req.params.user2_id)) {
         var err = new Error('Same values not allowed');
         res.status(400).send(err.message);
+        return;
     }
 
     Friends.remove({
@@ -72,6 +94,12 @@ exports.delete = function(req, res) {
  * List of Friends
  */
 exports.list = function(req, res) {
+
+    if ( typeof req.params.user_id === 'undefined' )  {
+        var err = new Error('Bad request parameter');
+        res.status(400).send(err.message);
+        return;
+    }
 
     Friends.find({
         user1_id: parseInt(req.params.user_id)

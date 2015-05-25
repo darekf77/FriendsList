@@ -5,6 +5,8 @@ module.exports = function(app) {
     var users = require('../../app/controllers/users.server.controller');
     var friends = require('../../app/controllers/friends.server.controller');
 
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.json());
     /**
      * @api {post} /friends/:user1_id/:user2_id Create
      * @apiName CreateFriendship
@@ -16,7 +18,7 @@ module.exports = function(app) {
      * @apiSuccess {Array} - with user's id's
      * 
      */
-    app.route('/friends/:user1_id([0-9]+)/:user2_id([0-9]+)')
+    app.route('/friends')
         .post(friends.create);
 
     /**

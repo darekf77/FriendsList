@@ -198,6 +198,7 @@ module.exports = function(grunt) {
                     output: 'public/doctor-md',
                     title: 'Usługa sieciowa',
                     logo: null,
+                    github: 'https://github.com/dariuszfilipiak/FriendsList'
                     // jsIncludes: ['docs'],
                     // cssIncludes: []
                 },

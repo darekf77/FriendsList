@@ -13,16 +13,26 @@ var mongoose = require('mongoose'),
 var FriendsSchema = new Schema({
 	user1_id: {
 		type: Number,
-		ref: 'User'
+		ref: 'User',
+		required: true
 	},
 	user2_id: {
 		type: Number,
-		ref: 'User'
+		ref: 'User',
+		required: true
 	}
+});
+
+
+
+FriendsSchema.index({
+    user1_id: 1,
+    user2_id: 1
 }, {
     unique: true,
     dropDups: true
 });
+
 
 
 // FriendsSchema.pre('save', function(next) {
@@ -62,6 +72,6 @@ var FriendsSchema = new Schema({
 // })
 
 
-FriendsSchema.plugin(autoIncrement.mongoosePlugin);
+// FriendsSchema.plugin(autoIncrement.mongoosePlugin);
 
 mongoose.model('Friends', FriendsSchema);
