@@ -1,4 +1,4 @@
-
+﻿
 FriendsList
 ===================
 > Usługa sieciowa wraz z klientem  
@@ -33,3 +33,4 @@ Aby z powrotem powrócić do trybu developement należy wykonać:
     $ export NODE_ENV=development 
     $ grunt
 
+![Zrzut ekranu](screen.png)
